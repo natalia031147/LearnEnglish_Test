@@ -1,0 +1,65 @@
+﻿
+@*@model LearnEnglish.Business.Models.VideoModel*@
+@{
+    ViewBag.Title = "Video";    
+}
+
+
+<div div="page-content" style="width: 880px;"  ng-init="getVideoDetails()">
+    <div class="video_title" >
+        <h3 style="color : #fff;">
+            {{video.title}}
+        </h3>
+    </div>
+
+    <div class="video_general" >
+        <div class="row" style="padding-bottom: 28px;">
+            <div class="col-lg-5">
+                <ul class="video_general_links">
+                    <li class="video_general_links_item">
+                        <a class="video_general_links_item_a" ng-href="/#/listening/{{video.id}}">                            
+                            <span class="video_general_links_name">Listening</span>                           
+                            <img class="done-action" style="margin-top: 15px;" src="~/Images/Done.png" ng-if="video.listeningModulePassed == true" width="30" height="30" />
+                        </a>
+                    </li>
+                    <li class="video_general_links_item">
+                        <a class="video_general_links_item_a" ng-href="/#/writing/{{video.id}}">
+                            <span class="video_general_links_name">Writing</span>
+                            <img class="done-action" style="margin-top: 15px;" src="~/Images/Done.png" ng-if="video.writingModulePassed == true" width="30" height="30" />
+                        </a>
+                    </li>
+                    <li class="video_general_links_item" style="pointer-events: none;">
+                        <a class="video_general_links_item_a" href="">
+                            <span style="color: gray;" class="video_general_links_name" disabled>Speaking</span>
+                            <img class="done-action" style="margin-top: 15px;" src="~/Images/Done.png" ng-if="video.speakingModulePassed == true" width="30" height="30" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <videogular class="videogularPlayer col-lg-6" vg-theme="config.theme" data-vg-player-ready="onPlayerReady($API)" vg-update-state="stateChange($state)">
+                <vg-media vg-src="config.sources"
+                          vg-tracks="config.tracks">
+                </vg-media>
+                <vg-controls>
+                    <vg-play-pause-button></vg-play-pause-button>
+                    <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
+                    <vg-scrub-bar>
+                        <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                    </vg-scrub-bar>
+                    <vg-time-display>{{ timeLeft | date:'mm:ss':'+0000' }}</vg-time-display>
+                    <vg-volume>
+                        <vg-mute-button></vg-mute-button>
+                        <vg-volume-bar></vg-volume-bar>
+                    </vg-volume>
+                    <vg-fullscreen-button></vg-fullscreen-button>
+                </vg-controls>
+                <vg-overlay-play></vg-overlay-play>
+                <vg-poster vg-url='controller.config.plugins.poster'></vg-poster>
+            </videogular>
+            @*<div class="youtubePlayer col-lg-6">                
+                <youtube-video player-width="'460'" player-height="'300px'"  video-url="video.url" player="youtubePlayer1"></youtube-video>
+            </div>*@
+        </div>
+    </div>
+</div>
+   

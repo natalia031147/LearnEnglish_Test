@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Videos";
+}
+
+<div div="cards-list" ng-init="getVideos();">
+    <table class="table">
+        <thead>
+            <tr>                
+                <th>Title</th>
+                <th>Name</th>
+                <th>Total Time</th>
+                <th>Listening</th>
+                <th>Writing</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="active" ng-repeat="item in videos track by $index">                
+                <td><a ng-href="/#/videos/{{item.id}}"><span class="md-headline" ng-click="loadVideo()">{{item.title}}</span></a></td>
+                <td>{{item.name}}</td>
+                <td>{{item.totalTime}}</td>
+                <td><img class="done-action" src="~/Images/Done.png" ng-if="item.listeningModulePassed == true" width="20" height="20"/></td>
+                <td><img class="done-action" src="~/Images/Done.png" ng-if="item.writingModulePassed == true" width="20" height="20" /></td>
+            </tr>          
+        </tbody>
+    </table>
+    
+    @*<div class='md-padding' layout="row" layout-wrap>        
+        <md-card flex-xs="" flex-gt-xs="30" ng-repeat="video in videos">
+            <a ng-href="/#/videos/{{video.id}}" ><img ng-src="{{'file:///C:/Users/Natalia/Desktop/LearnEnglish-Final/LearnEnglish/LearnEnglish/' + video.thumbnail}}" class="md-card-image"></a>
+            <level level="video.level" style="margin-top: 5px; margin-left: 15px;"></level>
+            <md-card-title>
+                <md-card-title-text>
+                    <a ng-href="/#/videos/{{video.id}}"><span class="md-headline" ng-click="loadVideo()">{{video.title}}</span></a>
+                </md-card-title-text>
+            </md-card-title>
+            <hr style="width: 100%;margin-left: 0px; margin-bottom: 0px; background-color:black">
+            <md-card-actions layout="column" layout-align="start">
+                <md-button ng-href="/#/listening/{{video.id}}">Listening<img class="done-action" src="~/Images/Done.png" ng-if="video.listeningModulePassed == true" width="25" height="25" /></md-button>
+                <md-button ng-href="/#/writing/{{video.id}}">Writing<img class="done-action" src="~/Images/Done.png" ng-if="video.writingModulePassed == true" width="25" height="25" /></md-button>
+            </md-card-actions>
+        </md-card>
+    </div>*@
+</div>
+

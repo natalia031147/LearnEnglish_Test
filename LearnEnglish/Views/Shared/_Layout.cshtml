@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/angular")
+    
+   
+    @RenderSection("scripts", required: false)
+    @*<script src="~/Scripts/angular.js"></script>*@
+    @*<script src="~/Angular/Controllers/AddVideoController.js"></script>*@
+    @*<script src="~/Angular/Service/YoutubeEmbedUtils.js"></script>*@
+    <script src="https://www.youtube.com/iframe_api"></script>
+    @*<script src="~/Angular/Controllers/VideoController.js"></script>*@
+    @*<script src="~/Angular/Controllers/BrowseVideosController.js"></script>*@
+    <link href="~/Content/bootstrap-select.min.css" rel="stylesheet">
+    <link href="~/node_modules/videogular-themes-default/videogular.min.css" rel="stylesheet">
+    <!-- Angular Material style sheet -->
+    @*<link rel="stylesheet" href="~/Content/angular-material.min.css">*@
+    
+   
+    <script src="~/Scripts/bootstrap-select.min.js"></script>
+
+    <script src="~/node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="~/node_modules/videogular/videogular.js"></script>
+    <script src="~/node_modules/videogular-controls/vg-controls.js"></script>
+    <script src="~/node_modules/videogular-overlay-play/vg-overlay-play.js"></script>
+    <script src="~/node_modules/videogular-poster/vg-poster.js"></script>
+    <script src="~/node_modules/videogular-buffering/vg-buffering.js"></script>
+
+
+
+  
+</head>
+<body ng-app="learnEnglishApp">
+    <div style="position: relative;min-height:100%;">
+        <div class="navbar navbar-inverse navbar-fixed-top" ng-app="LearnEnglishApp">
+            <div class="container">
+                <a ng-href="/#/videos"><img alt="logo" src="~/Images/logo-02.png" class="pull-left" style="height: 50px;" /></a>
+
+                
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav" style="margin-left: 20px;">
+                        <li><a ng-href="/#/videos">Videos</a></li>
+                        <li><a ng-href="/#/add">Add</a></li>
+
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>
+        <div ng-view class="container body-content">
+            <script>console.log('duplicated if jQuery');</script>
+            @RenderBody()
+        </div>
+        <footer class="footer-basic-centered">
+            <div class="container">
+                <img alt="logo" src="~/Images/logo-02.png" class="pull-left" style="height: 50px;">
+
+                <p class="footer-links">
+                    ·
+                    <a ng-href="/#/videos">Videos</a>
+                    ·
+                    <a ng-href="/#/add">Add</a>
+                </p>
+                <p class="footer-company-name">Learn English © 2016</p>
+            </div>
+        </footer>
+    </div>
+
+    <style>
+        
+    </style>
+
+    @*@Scripts.Render("~/bundles/angular")*@
+    <!-- Angular Material Library -->
+    @Scripts.Render("~/bundles/app")
+    <script>
+        $(function () {
+            $('body').show();
+        });
+    </script>
+    
+</body>
+</html>
